@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>awesomplete.js</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="awesomplete.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        * { margin: 0; padding: 0;}
+        div.awesomplete { display: block; width: 100%;}
+        div.awesomplete > input { width: 100%;}
+        div.awesomplete > ul > li { padding-top: .5em; padding-bottom: .5em;}
+        .input { margin-bottom: 2em;}
+    </style>`
+</head>
+<body>
+
+    <div class="ui page dimmer active">
+        <div class="content">
+            <div class="ui four column doubling centered grid stackable">
+                <div class="column">
+                    <div class="row">
+                        <div class="ui input fluid"><input class="awesomplete text1" data-list="Ada, Java, JavaScript, Brainfuck, LOLCODE, Node.js, Ruby on Rails" type="text" name="" id="" placeholder="请输入一门编程语言："></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="ui input fluid"><input class="text2" type="text" name="" id="" placeholder="请再输入一门编程语言："></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="ui input fluid"><input class="text3" type="text" name="" id="" placeholder="请多输入几门编程语言："></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="ui input fluid"><input class="text4" type="email" name="" id="" placeholder="请输入你的邮箱地址："></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="awesomplete.min.js"></script>
+    <script>
+        var awesomplete2 = new Awesomplete($('.text2')[0], {
+            list: ["Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"]
+        });
+        awesomplete2.list = ["other", "Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"];
+
+        var awesomplete3 = new Awesomplete($('.text3')[0], {
+            filter: function(text, input) {
+                return Awesomplete.FILTER_CONTAINS(text, input.match(/[^,]*$/)[0]);
+            },
+            
+            replace: function(text) {
+                var before = this.input.value.match(/^.+,\s*|/)[0];
+                this.input.value = before + text + ", ";
+            }   
+        });
+        awesomplete3.list = ["other", "Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"];
+
+        new Awesomplete($('input[type="email"]')[0], {
+            list: ["@aol.com", "@att.net", "@comcast.net", "@facebook.com", "@gmail.com", "@gmx.com", "@googlemail.com", "@google.com", "@hotmail.com", "@hotmail.co.uk", "@mac.com", "@me.com", "@mail.com", "@msn.com", "@live.com", "@sbcglobal.net", "@verizon.net", "@yahoo.com", "@yahoo.co.uk"],
+            item: function(text, input){
+                var newText = input.slice(0, input.indexOf("@")) + text;
+                
+                return Awesomplete.$.create("li", {
+                    innerHTML: newText.replace(RegExp(input.trim(), "gi"), "<mark>$&</mark>"),
+                    "aria-selected": "false"
+                });
+            },
+            filter: function(text, input){
+                return RegExp("^" + Awesomplete.$.regExpEscape(input.replace(/^.+?(?=@)/, ''), "i")).test(text);
+            }
+        });
+    </script>
+</body>
+</html>

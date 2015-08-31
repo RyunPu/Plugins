@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>autoMail.js</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        * { margin: 0; padding: 0;}
+        #mailBox { display: none; position: absolute; z-index: 9999; background: #fff;}
+        #mailBox p { display: none;}
+        #mailBox li { padding: .67861429em 1em; list-style: none; word-break: break-all; cursor: pointer;}
+        #mailBox .cmail { background: #f5f5f5;}
+    </style>
+</head>
+<body>
+
+    <div class="ui page dimmer active">
+        <div class="content">
+            <div class="ui four column doubling centered grid stackable">
+                <div class="column">
+                    <h4 class="ui header single line inverted">请输入你的邮箱地址：</h4>
+                    <div class="ui input fluid"><input type="email" name="" id=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="autoMail.js"></script>
+    <script>
+        $('input[type="email"]').autoMail({
+            emails:['','@qq.com','@vip.qq.com','@163.com','@126.com','@sohu.com','@sina.com','@gmail.com','@21cn.com','@outlook.com']
+        });
+    </script>
+</body>
+</html>
