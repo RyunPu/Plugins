@@ -5,5 +5,5 @@
 * [awesomplete](http://moamaoa.com/Plugins/js/awesomplete/demo.html)
 * [autoMail](http://moamaoa.com/Plugins/jqueryplugins/automail/demo.html)
 
-## Rresource
+## Link
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
