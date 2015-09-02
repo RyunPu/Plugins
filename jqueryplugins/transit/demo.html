@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>jquery.transit.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="../../css/animate/animate.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        * { margin: 0; padding: 0;}
+        .page { position: absolute; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #bccacc 0%, #c7d8d6 26%, #d9ebe0 54%, #ebf9e3 78%, #f4f8d0 100%);}
+        .page:nth-of-type(1) { z-index: 2;}
+        .page:nth-of-type(2) { background: linear-gradient(135deg, #a7d3cb 0%, #bcc1c4 32%, #e5cab3 59%, #fee6c5 89%, #fdecd0 100%);}
+        .page:nth-of-type(3) { background: linear-gradient(135deg, #c5d4d7 6%, #d6b98d 34%, #c99262 57%, #8c5962 80%, #43577e 100%);}
+        .page:nth-of-type(4) { background: linear-gradient(135deg, #373e44 0%, #17414d 38%, #413e3c 66%, #3f3515 78%, #522c01 100%);}
+        .long.arrow.left { position: absolute; z-index: 3; left: 50%; bottom: 2em; margin-left: -60px; font-size: 60px; line-height: 60px; color: #00B5AD; text-shadow: 0 0 2px 1px #f5f5f5;}
+        .animated { -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="long arrow left icon animated slideInRight"></i>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="../touchswipe/jquery.touchSwipe.min.js"></script>
+    <script src="jquery.transit.min.js"></script>
+    <script>
+        $('.page').swipe({
+            swipeLeft: function() {
+                var nextPage = $(this).next('.page').length ? $(this).next('.page') : $('.page').eq(0);
+                
+                $(this).transition({x: '-100%'}, 500, 'easeInOutCubic', function() { $(this).css({x: '100%', 'z-index':1}); });
+                nextPage.transition({x: 0}, 500, 'easeInOutCubic');
+            }
+        });
+    </script>
+</body>
+</html>
