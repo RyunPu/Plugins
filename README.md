@@ -3,9 +3,11 @@
 
 ## Demo
 * 自动完成插件 [awesomplete](http://moamaoa.com/Plugins/js/awesomplete/demo.html)
-* 邮箱自动补全 [autoMail](http://moamaoa.com/Plugins/jqueryplugins/automail/demo.html)
-* 动画效果扩展 [jquery.easing](http://moamaoa.com/Plugins/jqueryplugins/easing/demo.html)
-* 顺畅转换过渡 [jquery.transit](http://moamaoa.com/Plugins/jqueryplugins/transit/demo.html)
+* 邮箱自动补全插件 [autoMail](http://moamaoa.com/Plugins/jqueryplugins/automail/demo.html)
+* jquery动画效果扩展插件 [jquery.easing](http://moamaoa.com/Plugins/jqueryplugins/easing/demo.html)
+* jquery顺畅css转换过渡插件 [jquery.transit](http://moamaoa.com/Plugins/jqueryplugins/transit/demo.html)
+* 跨浏览器css动画库 [animate.css](http://moamaoa.com/Plugins/css/animate/demo.html)
 
-## Link
+## Resource
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
+* [jquery.transit](https://github.com/rstacruz/jquery.transit)
