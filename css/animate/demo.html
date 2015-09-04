@@ -9,7 +9,7 @@
     <script src="../../jquery/jquery-2.1.4.min.js"></script>
     <style type="text/css">
         * { margin: 0; padding: 0;}
-        .site__title{color:#f35626;background-image:-webkit-linear-gradient(92deg,#f35626,#feab3a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-animation-fill-mode: backwards;animation-fill-mode: backwards;}
+        .site__title.header{color:#f35626;background-image:-webkit-linear-gradient(92deg,#f35626,#feab3a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-animation-fill-mode: backwards;animation-fill-mode: backwards;}
         @media (min-width: 650px) {
             h1.ui.header { font-size: 6rem;}
         }
@@ -21,7 +21,7 @@
             <div class="content">
                 <div class="ui center aligned grid">
                     <div class="fourteen wide column">
-                        <h1 class="site__title ui header center aligned animated">Animate.css</h1>
+                        <h1 class="site__title ui header center aligned animated bounce">Animate.css</h1>
                         <select class="ui dropdown input input--dropdown js--animations">
                             <optgroup label="Attention Seekers">
                               <option value="bounce">bounce</option>
@@ -141,6 +141,7 @@
                               <option value="rollOut">rollOut</option>
                             </optgroup>
                           </select>
+                          <button class="ui teal button">Animate it</button>
                     </div>
                 </div>
             <div/>
@@ -149,12 +150,17 @@
 
     <script src="../../semantic-ui/semantic.min.js"></script>
     <script>
-        var h1Class = $('h1').attr('class'),
-            animatedClass;
+        var h1Class = 'site__title ui header center aligned animated',
+            animateClass = 'bounce';
 
         $('select.dropdown').on('change', function() {
-            animatedClass = $(this).val();
-            $('h1').attr('class', h1Class + ' ' + animatedClass);
+            animateClass = $(this).val();
+            $('h1').attr('class', h1Class + ' ' + animateClass);
+        });
+
+        $('button').on('click', function() {
+            $('h1').removeClass(animateClass);
+            setTimeout(function() { $('h1').addClass(animateClass); }, 0);
         });
     </script>
 </body>
