@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>photoswipe.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="photoswipe.css">
+    <link rel="stylesheet" href="default-skin.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        * { margin: 0; padding: 0;}
+        .pics span { display: inline-block; margin-left: 14px; margin-right: 14px;}
+        .pics figure { display: none;}
+    </style>
+</head>
+<body>
+    <div class="ui page dimmer active inverted">
+        <div class="content">
+            <div class="ui one column grid">
+                <div class="column">
+                    <div class="pics">
+                        <span data-src="images/img1.jpg" data-size="800x600">
+                            <img class="ui small image" src="images/img1.jpg" alt="">
+                            <figure>caption1-1</figure>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="pics">
+                        <span data-src="images/img2.jpg" data-size="800x600">
+                            <img class="ui small image" src="images/img2.jpg" alt="">
+                            <figure>caption2-1</figure>
+                        </span>
+                        <span data-src="images/img3.jpg" data-size="800x600">
+                            <img class="ui small image" src="images/img3.jpg" alt="">
+                            <figure>caption2-2</figure>
+                        </span>
+                        <span data-src="images/img4.jpg" data-size="800x600">
+                            <img class="ui small image" src="images/img4.jpg" alt="">
+                            <figure>caption2-3</figure>
+                        </span>
+                        <span data-src="images/img5.jpg" data-size="800x600">
+                            <img class="ui small image" src="images/img5.jpg" alt="">
+                            <figure>caption2-4</figure>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg">
+        </div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item">
+                </div>
+                <div class="pswp__item">
+                </div>
+                <div class="pswp__item">
+                </div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter">
+                    </div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip">
+                    </div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="photoswipe.min.js"></script>
+    <script src="photoswipe-ui-default.min.js"></script>
+    <script>
+        function initPhotoSwipe(selector) {
+            var parseThumbnail = function(gallery) {
+                var thumbnail,
+                    size,
+                    items = [],
+                    item;
+
+                $.each(gallery.children(), function(index, value) {
+                    thumbnail = $(value);
+                    size = thumbnail.data('size').split('x');
+                    item = {
+                        src: thumbnail.data('src'),
+                        w: parseInt(size[0]),
+                        h: parseInt(size[1]),
+                    };
+
+                    if (thumbnail.find('figure').length) {
+                        item.title = thumbnail.find('figure').html();
+                    }
+
+                    if (thumbnail.find('img').length) {
+                        item.msrc = thumbnail.find('img').attr('src');
+                    }
+
+                    item.obj = thumbnail;
+                    items.push(item);
+                });
+
+                return items;
+            };
+
+            var openPhotoSwipe = function(index, currentGallery, disableAnimation, fromURL) {
+                var pswp = $('.pswp').get(0),
+                    gallery,
+                    options,
+                    items;
+
+                items = parseThumbnail(currentGallery);
+                options = {
+                    galleryUID: currentGallery.data('pswp-uid'),
+                    showHideOpacity: true,
+                    getThumbBoundsFn: function(index) {
+                        if (!items[index].obj.find('img').length) return;
+
+                        var img = items[index].obj.find('img').get(0),
+                            pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                            rect = img.getBoundingClientRect();
+
+                        return {
+                            x: rect.left,
+                            y: rect.top + pageYScroll,
+                            w: rect.width
+                        };
+                    }
+                };
+
+                if (fromURL) {
+                    if (options.galleryPIDs) {
+                        $.each(items, function(i, item) {
+                            if (item.pid == index) {
+                                options.index = i;
+                                return false;
+                            }
+                        });
+                    } else {
+                        options.index = parseInt(index) - 1;
+                    }
+                } else {
+                    options.index = parseInt(index);
+                }
+
+                if (isNaN(options.index)) return;
+                if (disableAnimation) options.showAnimationDuration = 0;
+
+                gallery = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+            };
+
+            var parseHash = function() {
+                var hash = window.location.hash.substring(1),
+                    params = {},
+                    vars,
+                    pair;
+
+                if (hash.length < 5) return params;
+
+                vars = hash.split('&');
+
+                for (var i = 0; i < vars.length; i++) {
+                    if (!vars[i]) continue;
+                    pair = vars[i].split('=');
+                    if (pair.length < 2) continue;
+                    params[pair[0]] = pair[1];
+                }
+
+                if (params.gid) params.gid = parseInt(params.gid);
+
+                return params;
+            };
+
+            $.each($(selector), function(index, value) {
+                $(value).data('pswp-uid', index + 1);
+            });
+
+            $(selector).children().on('click', function() {
+                var that = $(this),
+                    index = that.index(),
+                    parent = that.parent();
+
+                openPhotoSwipe(index, parent);
+            });
+
+            var hashData = parseHash();
+            if (hashData.pid && hashData.gid) {
+                openPhotoSwipe(hashData.pid, $(selector).eq([hashData.gid - 1]), true, true);
+            }
+        }
+
+        initPhotoSwipe('.pics');
+    </script>
+</body>
+</html>
