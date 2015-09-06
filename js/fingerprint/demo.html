@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>fingerprint2.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        .content p { color: #F2711C;}
+    </style>
+</head>
+<body>
+    <div class="ui page dimmer active">
+        <div class="content">
+            <div>
+                <h1 class="ui header inverted">your browser's fingerprint:</h1>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="fingerprint2.min.js"></script>
+    <script>
+        new Fingerprint2().get(function(result) {
+            $('.content p').html(result);
+        });
+    </script>
+</body>
+</html>
