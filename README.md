@@ -10,7 +10,7 @@
 * 图片集浏览插件 [photoswipe](http://moamaoa.com/Plugins/js/photoswipe/demo.html)
 * 浏览器指纹识别插件 [fingerprint2](http://moamaoa.com/Plugins/js/fingerprint/demo.html)
 
-## Resource
+## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
 * [jquery.transit](https://github.com/rstacruz/jquery.transit)
 * [photoswipe](https://github.com/dimsemenov/photoswipe)
