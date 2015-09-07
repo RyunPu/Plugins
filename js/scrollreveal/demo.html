@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>scrollReveal.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        html, body, .ui { height: 100%; background: #1A2434;}
+        .ui.grid { height: 190%; padding-top: 10%;}
+        .ui.grid>.column:not(.row) { width: 2.6%; padding-left: 0; padding-right: 0;}
+        .column{height:100%;margin:0 1.75%;}
+        .block{border-radius:5px;margin-bottom:150%;}
+        .block-1x{height:10%;}
+        .block-2x{height:15%;}
+        .block-3x{height:20%;}
+        .block-blueberry{background:#008597;}
+        .block-slate{background:#2d3443;}
+        .block-grape{background:#4d407c;}
+        .block-raspberry{background:#ff005d;}
+        .block-mango{background:#fc0;}
+        .block-orange{background:#ff7c35;}
+        .block-kiwi{background:#35ff99;}
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui eight cloumn center aligned grid">
+            <!-- col 1 -->
+            <div class="column">
+                <div class="block block-1x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-2x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+                <div class="block block-1x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-3x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-2x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+                <div class="block block-1x block-grape" data-sr="enter top">
+                </div>
+            </div>
+            <!-- col 2 -->
+            <div class="column">
+                <div class="block block-3x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-1x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-2x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-1x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-1x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-2x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+            </div>
+            <!-- col 3 -->
+            <div class="column">
+                <div class="block block-2x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+                <div class="block block-1x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-2x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-1x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+                <div class="block block-1x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-3x block-orange" data-sr="enter left">
+                </div>
+            </div>
+            <!-- col 4 -->
+            <div class="column">
+                <div class="block block-1x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-2x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-3x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+                <div class="block block-1x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-2x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-1x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+            </div>
+            <!-- col 5 -->
+            <div class="column">
+                <div class="block block-3x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+                <div class="block block-1x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-2x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-1x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-1x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-2x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+            </div>
+            <!-- col 6 -->
+            <div class="column">
+                <div class="block block-1x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-3x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-1x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-3x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+                <div class="block block-1x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-1x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+            </div>
+            <!-- col 7 -->
+            <div class="column">
+                <div class="block block-2x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-1x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+                <div class="block block-1x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+                <div class="block block-3x block-raspberry" data-sr="enter bottom over 1s and move 65px">
+                </div>
+                <div class="block block-2x block-mango" data-sr="enter right wait 0.5s">
+                </div>
+                <div class="block block-1x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+            </div>
+            <!-- col 8 -->
+            <div class="column">
+                <div class="block block-1x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-2x block-orange" data-sr="enter left">
+                </div>
+                <div class="block block-1x block-grape" data-sr="enter top">
+                </div>
+                <div class="block block-3x block-slate" data-sr="enter top over 3s wait 0.5s">
+                </div>
+                <div class="block block-1x block-blueberry" data-sr="enter top over 0.5s and move 140px">
+                </div>
+                <div class="block block-2x block-kiwi" data-sr="enter bottom over 1s and move 110px wait 0.3s">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="scrollReveal.min.js"></script>
+    <script>
+        window.sr = new scrollReveal({
+            reset: true,
+            move: '50px',
+            mobile: true
+        });
+    </script>
+</body>
+</html>
