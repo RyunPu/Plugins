@@ -10,6 +10,7 @@
 * 图片集浏览插件 [photoswipe](http://moamaoa.com/Plugins/js/photoswipe/demo.html)
 * 浏览器指纹识别插件 [fingerprint2](http://moamaoa.com/Plugins/js/fingerprint/demo.html)
 * 元素进入展现插件 [scrollreveal](http://moamaoa.com/Plugins/js/scrollreveal/demo.html)
+* css动画 [animatable](http://moamaoa.com/Plugins/js/animatable/demo.html)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
