@@ -12,6 +12,8 @@
         a[data-property]{position:relative;display: inline-block;width:150px;height:150px;box-sizing:border-box;background:#708090;color:#FFF;font-size:60px;line-height:150px;text-align:center;counter-increment:demo;outline-color:transparent;margin:0 15px 30px;}
         a[data-property]:before{content:counter(demo); position: absolute; left: 0; width: 100%;}
         a[data-property]:after{content:attr(data-property);position:absolute;right:0;left:0;bottom:-1.2em;z-index:2;color:#708090;font-size:14px;line-height:1;text-indent:0;text-shadow:none;letter-spacing:0;}
+        .popup p { margin-bottom: 3px;}
+        h3.ui.header{ font-size: 1.28rem; margin-bottom: 7px;}
     </style>
 </head>
 <body>
@@ -91,6 +93,25 @@
             mouseleave: function() {
                 $(this).removeClass('active');
             }
+        });
+
+        // popup
+        $('[data-property]').each(function(index) {
+            var title = $(this).data('property'),
+                from = $(this).data('from'),
+                to = $(this).data('to'),
+                author = $(this).data('author') ? '<p><strong>author: </strong>@' + $(this).data('author') + '</p>' : '',
+                html = '';
+
+            html = '<h3 class="ui header teal">' + title + '</h3>\
+                    <p><strong>from: </strong>' + from + '</p>\
+                    <p><strong>to: </strong>' + to + '</p>' + author;
+
+            $(this).popup({
+                on: 'click',
+                html: html,
+                variation: 'wide'
+            });
         });
     </script>
 </body>
