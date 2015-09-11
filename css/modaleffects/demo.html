@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>modaleffects.css demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" href="modaleffects.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        .ui.teal.button { margin: .5em;}
+        .scrolling .md-modal { top: 0;}
+
+        /* modify modaleffects.css */
+        .ui.dimmer.md-overlay { background: rgba(0,0,0,.85);}
+        .md-show.md-effect-12 ~ .md-overlay { background: #000;}
+    </style>
+</head>
+<body> 
+    <div class="md-modal">
+      <div class="ui modal md-content">
+        <i class="close icon"></i>
+        <div class="header">
+          Profile Picture
+        </div>
+        <div class="image content">
+          <div class="ui medium image">
+            <img src="avatar.jpg">
+          </div>
+          <div class="description">
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Nope
+          </div>
+          <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container">
+      <div class="ui segment bottom attached">
+        <button class="ui button teal" data-md-effect="1">Fade in &amp; Scale</button>
+        <button class="ui button teal" data-md-effect="2">Slide in (right)</button>
+        <button class="ui button teal" data-md-effect="3">Slide in (bottom)</button>
+        <button class="ui button teal" data-md-effect="4">Newspaper</button>
+        <button class="ui button teal" data-md-effect="5">Fall</button>
+        <button class="ui button teal" data-md-effect="6">Side Fall</button>
+        <button class="ui button teal" data-md-effect="7">Sticky Up</button>
+        <button class="ui button teal" data-md-effect="8">3D Flip (horizontal)</button>
+        <button class="ui button teal" data-md-effect="9">3D Flip (vertical)</button>
+        <button class="ui button teal" data-md-effect="10">3D Sign</button>
+        <button class="ui button teal" data-md-effect="11">Super Scaled</button>
+        <button class="ui button teal" data-md-effect="12">Just Me</button>
+        <button class="ui button teal" data-md-effect="13">3D Slit</button>
+        <button class="ui button teal" data-md-effect="14">3D Rotate Bottom</button>
+        <button class="ui button teal" data-md-effect="15">3D Rotate In Left</button>
+        <button class="ui button teal" data-md-effect="16">Blur</button>
+        <!-- special modal that will add a perspective class to the html element -->
+        <button class="ui button teal md-setperspective" data-md-effect="17">Let me in</button>
+        <button class="ui button teal md-setperspective" data-md-effect="18">Make way!</button>
+        <button class="ui button teal md-setperspective" data-md-effect="19">Slip from top</button>
+      </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script>
+        $('.ui.button').on('click', function() {
+            var num = $(this).data('md-effect'),
+                effect = 'md-effect-' + num,
+                wrap = $('.md-modal');
+
+            wrap.addClass(effect);
+            $('.ui.modal').modal({
+                detachable: false,
+                transition: 'fade',
+                onShow: function() {
+                    setTimeout(function() {
+                        wrap.addClass('md-show');
+                        $('.dimmer').addClass('md-overlay');
+                        $('html').addClass('md-perspective');
+                        $('.md-effect-7 .md-content').css('margin-top', 0);
+                    }, 25);
+                },
+                onHide: function() {
+                    wrap.attr('class', 'md-modal');
+                    $('html').removeClass('md-perspective');
+                    if (num == 7) $('.md-modal').css('top', 0);
+                },
+                onHidden: function() {
+                    if (num == 7) $('.md-modal').attr('style', '');
+                }
+            }).modal('show');
+        });
+    </script>
+</body>
+</html>
