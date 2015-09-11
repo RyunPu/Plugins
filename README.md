@@ -12,6 +12,7 @@
 * 元素进入展现插件 [scrollreveal](http://moamaoa.com/Plugins/js/scrollreveal/demo.html)
 * css动画 [animatable](http://moamaoa.com/Plugins/js/animatable/demo.html)
 * 方位感应插件 [parallax](http://moamaoa.com/Plugins/js/parallax/demo.html)
+* 弹窗展现效果 [modaleffects.css](http://moamaoa.com/Plugins/css/modaleffects/demo.html)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
