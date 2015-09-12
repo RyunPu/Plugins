@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>jquery.mousewheel.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        html, body, .container { height: 100%; overflow: hidden;}
+        .ui.info { position: fixed; z-index: 999; left: 0; top: 0; right: 0; text-align: center;}
+        .ui.info strong { font-weight: normal; color: silver;}
+    </style>
+</head>
+<body>
+    <div class="ui info bottom attached message">
+        <strong>event.deltaX: </strong><span class="p1">0</span>, <strong>event.deltaY: </strong><span class="p2">0</span>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="jquery.mousewheel.min.js"></script>
+    <script>
+        $('body').on('mousewheel', function(event) {
+            $('.info .p1').html(event.deltaX);
+            $('.info .p2').html(event.deltaY);
+            console.log(event.deltaX, event.deltaY);
+        });
+    </script>
+</body>
+</html>
