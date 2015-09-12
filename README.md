@@ -13,6 +13,7 @@
 * css动画 [animatable](http://moamaoa.com/Plugins/js/animatable/demo.html)
 * 方位感应插件 [parallax](http://moamaoa.com/Plugins/js/parallax/demo.html)
 * 弹窗展现效果 [modaleffects.css](http://moamaoa.com/Plugins/css/modaleffects/demo.html)
+* 跨浏览器鼠标滚轮支持 [jquery.mousewheel](http://moamaoa.com/Plugins/jqueryplugins/mousewheel/demo.html)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
