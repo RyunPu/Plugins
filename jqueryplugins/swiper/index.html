@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>jquery.swiper.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        html, body { height: 100%;}
+        .swiper-container.main { height: 100%;}
+        .swiper-container.main > .swiper-wrapper > .swiper-slide { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; color: #fff; background: #54c8ff;}
+        .swiper-container.main > .swiper-wrapper > .swiper-slide:nth-of-type(3) { background: #dc73ff;}
+        .swiper-container.main > .swiper-wrapper > .swiper-slide:nth-of-type(2) { background: #a291fb;}
+        .swiper-container.main > .swiper-wrapper > .swiper-slide:nth-of-type(4) { background: #f2711c;}
+        .swiper-pagination-bullet-active { background: #00b5ad;}
+        .demo1 { padding: 50px 0;}
+        .demo1 .swiper-slide {background-position:center;background-size:cover;width:300px;height:300px;}
+    </style>
+</head>
+<body>
+    <div class="swiper-container main">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="swiper-container demo1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/1)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/2)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/3)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/4)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/5)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/6)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/7)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/8)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/9)"></div>
+                        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/people/10)"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="../mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script>
+        var swiper,
+            moving = false,
+            initialized = false;
+
+       swiper = new Swiper('.swiper-container.main', {
+            pagination: '.main > .swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical',
+            speed: 600,
+            onInit: function() {
+                initialized = true;
+            },
+            onSlideChangeStart: function() {
+                moving = true;
+            },
+            onSlideChangeEnd: function() {
+                moving = false;
+            }
+        });
+
+        $('.swiper-container.main').on('mousewheel', function(event) {
+            if (initialized && !moving && Math.abs(event.deltaY) > 50) {
+                if (event.deltaY < 0) {
+                    swiper.slideNext();
+                } else {
+                    swiper.slidePrev();
+                }
+            }
+        });
+
+        var demo1 = new Swiper('.swiper-container.demo1', {
+            pagination: '.demo1 .swiper-pagination',
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 3,
+            coverflow: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows : true
+            }
+        });
+    </script>
+</body>
+</html>
