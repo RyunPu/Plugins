@@ -15,6 +15,7 @@
 * 弹窗展现效果 [modaleffects.css](http://moamaoa.com/Plugins/css/modaleffects/demo.html)
 * 跨浏览器鼠标滚轮支持 [jquery.mousewheel](http://moamaoa.com/Plugins/jqueryplugins/mousewheel/demo.html)
 * Most modern mobile touch slider [jquery.swiper](http://moamaoa.com/Plugins/jqueryplugins/swiper/)
+* A responsive multi-level menu [jquery.dlmenu](http://moamaoa.com/Plugins/jqueryplugins/dlmenu/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
