@@ -16,6 +16,7 @@
 * 跨浏览器鼠标滚轮支持 [jquery.mousewheel](http://moamaoa.com/Plugins/jqueryplugins/mousewheel/demo.html)
 * Most modern mobile touch slider [jquery.swiper](http://moamaoa.com/Plugins/jqueryplugins/swiper/)
 * A responsive multi-level menu [jquery.dlmenu](http://moamaoa.com/Plugins/jqueryplugins/dlmenu/)
+* A jquery plugin to be used on touch devices [jquery.touchswipe](http://moamaoa.com/Plugins/jqueryplugins/touchswipe/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -25,3 +26,4 @@
 * [scrollreveal](https://github.com/jlmakes/scrollReveal.js)
 * [parallax](https://github.com/wagerfield/parallax)
 * [swiper](https://github.com/nolimits4web/Swiper)
+* [touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
