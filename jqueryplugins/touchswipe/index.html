@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>jquery.touchSwipe.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div class="ui page dimmer active">
+        <div class="content">
+            <div class="ui header inverted">Swipe me for at least 200 px, then back 10px to cancel</div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="jquery.touchSwipe.min.js"></script>
+    <script>
+        $('.page').swipe({
+          swipe: function(event, direction) {
+            $('.page .header').text('You swiped ' + direction );
+          },
+          swipeStatus: function(event, phase, direction, distance, duration, fingers) {
+            $('.page .header').text(' Your have swiped ' + distance + ' px so far');
+            
+            if(distance > 200) {
+                $('.page' .header).text(' Now swipe back 10px and release to cancel.. distance = ' + distance + 'px');
+            }
+            
+            if (phase == 'cancel') {
+              $('.page .header').text(' You cancelled the swipe');
+            }
+          },
+          threshold:200,
+          cancelThreshold:10
+        });
+    </script>
+</body>
+</html>
