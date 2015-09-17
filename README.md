@@ -26,4 +26,4 @@
 * [scrollreveal](https://github.com/jlmakes/scrollReveal.js)
 * [parallax](https://github.com/wagerfield/parallax)
 * [swiper](https://github.com/nolimits4web/Swiper)
-* [touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
+* [jquery.touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
