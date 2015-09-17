@@ -17,6 +17,7 @@
 * Most modern mobile touch slider [jquery.swiper](http://moamaoa.com/Plugins/jqueryplugins/swiper/)
 * A responsive multi-level menu [jquery.dlmenu](http://moamaoa.com/Plugins/jqueryplugins/dlmenu/)
 * A jquery plugin to be used on touch devices [jquery.touchswipe](http://moamaoa.com/Plugins/jqueryplugins/touchswipe/)
+* page transition effects using CSS animations [jquery.pagetransitions](http://moamaoa.com/Plugins/jqueryplugins/pagetransitions/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
