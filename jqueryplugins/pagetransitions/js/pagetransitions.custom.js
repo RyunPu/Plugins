@@ -52,7 +52,8 @@
             var self = this,
                 keys = self.cfgs.keys;
 
-            $('body').keyup(function(event) {
+            $('body').off('keyup.PageTransitions');
+            $('body').on('keyup.PageTransitions', function(event) {
                 var key = event.which;
 
                 if (key == keys.RIGHT || key == keys.SPACE || key == keys.ENTER || key == keys.DOWN || key == keys.PAGE_DOWN) {
@@ -568,7 +569,7 @@
             $currPage.addClass(outClass).on(animEndEventName, function() {
                 $currPage.off(animEndEventName);
                 self.endCurrPage = true;
-                if (self.endCurrPage) self.onEndAnimation($currPage, $nextPage);
+                if (self.endNextPage) self.onEndAnimation($currPage, $nextPage);
             });
 
             $nextPage.addClass(inClass).on(animEndEventName, function() {
