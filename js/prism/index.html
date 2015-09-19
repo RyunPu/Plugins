@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>prism.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="themes/prism-coy.css">
+    <link rel="stylesheet" href="css/prism-line-numbers.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        pre { padding-top: 1em; padding-bottom: 1em; border-radius: 5px;}
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <h3 class="ui header">html</h3>
+        <pre class="line-numbers"><code class="language-markup">
+&lt;div class=&quot;ui page dimmer active&quot;&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;div&gt;
+            &lt;h1 class=&quot;ui header inverted&quot;&gt;your browser&#039;s fingerprint:&lt;/h1&gt;
+            &lt;p&gt;&lt;i class=&quot;spinner icon loading&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3 class="ui header">css</h3>
+        <pre class="line-numbers"><code class="language-css">
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+}</code></pre>
+
+        <h3 class="ui header">javascript</h3>
+        <pre class="line-numbers"><code class="language-javascript">
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+        if (xhr.status < 400 && xhr.responseText) {
+            code.textContent = xhr.responseText;
+            Prism.highlightElement(code);
+        } else if (xhr.status >= 400) {
+            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+        } else {
+            code.textContent = '✖ Error: File does not exist or is empty';
+        }
+    }
+};</code></pre>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/prism-line-numbers.min.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
