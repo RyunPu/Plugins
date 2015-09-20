@@ -19,6 +19,7 @@
 * A jquery plugin to be used on touch devices [jquery.touchswipe](http://moamaoa.com/Plugins/jqueryplugins/touchswipe/)
 * page transition effects using CSS animations [jquery.pagetransitions](http://moamaoa.com/Plugins/jqueryplugins/pagetransitions/)
 * Lightweight, robust, elegant syntax highlighting [prism](http://moamaoa.com/Plugins/js/prism/)
+* detects HTML5 and CSS3 features in the user’s browser [modernizr](http://modernizr.github.io/Modernizr/test/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
