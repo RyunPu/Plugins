@@ -18,6 +18,8 @@
 * A responsive multi-level menu [jquery.dlmenu](http://moamaoa.com/Plugins/jqueryplugins/dlmenu/)
 * A jquery plugin to be used on touch devices [jquery.touchswipe](http://moamaoa.com/Plugins/jqueryplugins/touchswipe/)
 * page transition effects using CSS animations [jquery.pagetransitions](http://moamaoa.com/Plugins/jqueryplugins/pagetransitions/)
+* Lightweight, robust, elegant syntax highlighting [prism](http://moamaoa.com/Plugins/js/prism/)
+* detects HTML5 and CSS3 features in the user’s browser [modernizr](http://modernizr.github.io/Modernizr/test/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -28,3 +30,4 @@
 * [parallax](https://github.com/wagerfield/parallax)
 * [swiper](https://github.com/nolimits4web/Swiper)
 * [jquery.touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
+* [prism](http://prismjs.com/)

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>prefixfree.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link id="test" rel="stylesheet" href="css/test.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css"> 
+        div.page {
+            height: 100%;
+            column-count: 4;
+            column-gap: 2em;
+            color: #fff;
+            background: #333;
+        }
+
+        div.page div { display: flex; height: 100%; justify-content: center; align-items: center;}
+        div.page div:nth-of-type(1) { background: #0ac2d2;}
+        div.page div:nth-of-type(2) { background: #7bb7fa;}
+        div.page div:nth-of-type(3) { background: #60d7a9;}
+        div.page div:nth-of-type(4) { background: #fdc162;}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div>column1</div>
+        <div>column2</div>
+        <div>column3</div>
+        <div>column4</div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="prefixfree.min.js"></script>
+    <script>
+        var style = document.createElement('style');
+        style.textContent = 'div.page { column-gap: 1em;}';
+        StyleFix.styleElement(style);
+        $('head').append(style);
+        console.log(style.textContent);
+    </script>
+</body>
+</html>
