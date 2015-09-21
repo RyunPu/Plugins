@@ -20,6 +20,7 @@
 * page transition effects using CSS animations [jquery.pagetransitions](http://moamaoa.com/Plugins/jqueryplugins/pagetransitions/)
 * Lightweight, robust, elegant syntax highlighting [prism](http://moamaoa.com/Plugins/js/prism/)
 * detects HTML5 and CSS3 features in the user’s browser [modernizr](http://modernizr.github.io/Modernizr/test/)
+* Break free from CSS prefix hell [prefixfree](http://moamaoa.com/Plugins/js/prefixfree/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -31,3 +32,4 @@
 * [swiper](https://github.com/nolimits4web/Swiper)
 * [jquery.touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
 * [prism](http://prismjs.com/)
+* [prefixfree](https://github.com/LeaVerou/prefixfree)
