@@ -32,4 +32,5 @@
 * [swiper](https://github.com/nolimits4web/Swiper)
 * [jquery.touchswipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
 * [prism](http://prismjs.com/)
+* [modernizr](https://modernizr.com/docs/)
 * [prefixfree](https://github.com/LeaVerou/prefixfree)
