@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>preloadjs.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css"> 
+
+    </style>
+</head>
+<body>
+    <div class="ui page dimmer active">
+        <div class="content">
+            <div>
+                <button class="ui teal button load">
+                    <i class="spinner icon"></i>
+                    <span>Load</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="js/preloadjs-0.6.1.min.js"></script>
+    <script>
+        $('.load').on('click', function() {
+            loadResource(['test-avatar.png', 'test-img.jpg', 'test-mp3.mp3', 'test-mp3-2.mp3']);
+        });
+
+        function loadResource(manifest) {
+            var queue = new createjs.LoadQueue(true, 'images/');
+
+            queue.on('fileload', handleFileLoad);
+            queue.on('progress', handleProgress);
+            queue.on('complete', handleComplete);
+            queue.loadManifest(manifest);
+            //queue.setMaxConnections(5);
+        }
+
+        function handleFileLoad(e) {
+            console.log(e.item.id + ' loaded');
+        }
+
+        function handleProgress(e) {
+            $('.spinner').addClass('loading');
+            $('.load span').html(parseInt(e.loaded / e.total * 100) + '%');
+        }
+
+        function handleComplete(e) {
+            $('.spinner').removeClass('loading');
+            $('.load span').html('Load');
+            console.log('completed');
+        }
+    </script>
+</body>
+</html>
