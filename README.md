@@ -21,6 +21,7 @@
 * Lightweight, robust, elegant syntax highlighting [prism](http://moamaoa.com/Plugins/js/prism/)
 * detects HTML5 and CSS3 features in the user’s browser [modernizr](http://modernizr.github.io/Modernizr/test/)
 * Break free from CSS prefix hell [prefixfree](http://moamaoa.com/Plugins/js/prefixfree/)
+* PreloadJS makes preloading assets [preloadjs](http://moamaoa.com/Plugins/js/preloadjs/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -34,3 +35,4 @@
 * [prism](http://prismjs.com/)
 * [modernizr](https://modernizr.com/docs/)
 * [prefixfree](https://github.com/LeaVerou/prefixfree)
+* [preloadjs](https://github.com/CreateJS/PreloadJS)
