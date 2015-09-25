@@ -25,8 +25,10 @@
     <script src="../../semantic-ui/semantic.min.js"></script>
     <script src="js/preloadjs-0.6.1.min.js"></script>
     <script>
+        var loading = false;
+
         $('.load').on('click', function() {
-            loadResource(['test-avatar.png', 'test-img.jpg', 'test-mp3.mp3', 'test-mp3-2.mp3']);
+            if (!loading) loadResource(['test-avatar.png', 'test-img.jpg', 'test-mp3.mp3', 'test-mp3-2.mp3']);
         });
 
         function loadResource(manifest) {
@@ -44,11 +46,13 @@
         }
 
         function handleProgress(e) {
+            loading = true;
             $('.spinner').addClass('loading');
             $('.load span').html(parseInt(e.loaded / e.total * 100) + '%');
         }
 
         function handleComplete(e) {
+            loading = false;
             $('.spinner').removeClass('loading');
             $('.load span').html('Load');
             console.log('completed');
