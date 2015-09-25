@@ -22,6 +22,7 @@
 * detects HTML5 and CSS3 features in the user’s browser [modernizr](http://modernizr.github.io/Modernizr/test/)
 * Break free from CSS prefix hell [prefixfree](http://moamaoa.com/Plugins/js/prefixfree/)
 * PreloadJS makes preloading assets [preloadjs](http://moamaoa.com/Plugins/js/preloadjs/)
+* A collection of mobile event plugins for jQuery [jquery.mobile-events](http://moamaoa.com/Plugins/jqueryplugins/mobile-events)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -36,3 +37,4 @@
 * [modernizr](https://modernizr.com/docs/)
 * [prefixfree](https://github.com/LeaVerou/prefixfree)
 * [preloadjs](https://github.com/CreateJS/PreloadJS)
+* [jquery.mobile-events](https://github.com/benmajor/jQuery-Touch-Events)
