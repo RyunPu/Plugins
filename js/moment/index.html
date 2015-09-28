@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>moment.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        body { font-family: Consolas,monaco,monospace;}
+        p span { color: #999; margin-left: 1em;}
+        strong { font-size: small; font-weight: normal; color: #c34;}
+        em { font-style: normal; color: #4baa8f;}
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui segment format">
+            <h3 class="ui header">Format Dates</h3>
+            <p></p>
+            <p data-format="MMMM Do YYYY, h:mm:ss a"></p>
+            <p data-format="dddd"></p>
+            <p data-format="MMM Do YY"></p>
+            <p data-format="YYYY [escaped] YYYY"></p>
+        </div>
+
+        <div class="ui segment relative">
+            <h3 class="ui header">Relative Time</h3>
+            <p data-time="20111031"></p>
+            <p data-time="20120620"></p>
+        </div>
+
+        <div class="ui segment calendar">
+            <h3 class="ui header">Calendar Time</h3>
+            <p></p>
+            <p data-day="1"></p>
+            <p data-day="3"></p>
+            <p data-day="10"></p>
+        </div>
+    </div>
+
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/zh-cn.js"></script>
+    <script>
+        //moment.locale('zh-cn');
+
+        $('.format p').each(function() {
+            var format = $(this).data('format');
+            
+            if (format) {
+                $(this).append('moment().format(<strong>"' + format + '"</strong>);<span>//' + moment().format(format) + '</span>')
+            } else {
+                $(this).append('moment().format();<span>//' + moment().format() + '</span>');
+            }
+        });
+
+        $('.relative p').each(function() {
+            var time = $(this).data('time');
+
+            if (moment(time, "YYYYMMDD", true).isValid()) {
+                $(this).append('moment(<strong>"' + time + '"</strong>, <strong>"YYYYMMDD"</strong>).fromNow();<span>//' + moment(time, "YYYYMMDD").fromNow() + '</span>');
+            }
+        });
+
+        $('.calendar p').each(function() {
+            var day = $(this).data('day');
+
+            if (day) {
+                $(this).append('moment().add(<em>' + day + '</em>, <strong>"days"</strong>).calendar();<span>//' + moment().add(day, 'days').calendar() + '</span>')
+            } else {
+                $(this).append('moment().calendar();<span>//' + moment().calendar() + '</span>');
+            }
+        });
+
+    </script>
+</body>
+</html>
