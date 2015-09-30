@@ -23,6 +23,7 @@
 * Break free from CSS prefix hell [prefixfree](http://moamaoa.com/Plugins/js/prefixfree/)
 * PreloadJS makes preloading assets [preloadjs](http://moamaoa.com/Plugins/js/preloadjs/)
 * A collection of mobile event plugins for jQuery [jquery.mobile-events](http://moamaoa.com/Plugins/jqueryplugins/mobile-events)
+* Parse, validate, manipulate, and display dates [moment](http://moamaoa.com/Plugins/js/moment/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -38,3 +39,4 @@
 * [prefixfree](https://github.com/LeaVerou/prefixfree)
 * [preloadjs](https://github.com/CreateJS/PreloadJS)
 * [jquery.mobile-events](https://github.com/benmajor/jQuery-Touch-Events)
+* [moment](http://momentjs.com/)
