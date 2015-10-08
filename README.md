@@ -24,6 +24,7 @@
 * PreloadJS makes preloading assets [preloadjs](http://moamaoa.com/Plugins/js/preloadjs/)
 * A collection of mobile event plugins for jQuery [jquery.mobile-events](http://moamaoa.com/Plugins/jqueryplugins/mobile-events)
 * Parse, validate, manipulate, and display dates [moment](http://moamaoa.com/Plugins/js/moment/)
+* Device detection (phone, tablet, desktop, mobile grade, os, versions) [mobile-detect](http://zeno.github.io/mobile-detect-demo/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -40,3 +41,4 @@
 * [preloadjs](https://github.com/CreateJS/PreloadJS)
 * [jquery.mobile-events](https://github.com/benmajor/jQuery-Touch-Events)
 * [moment](http://momentjs.com/)
+* [mobile-detect](https://github.com/hgoebl/mobile-detect.js)
