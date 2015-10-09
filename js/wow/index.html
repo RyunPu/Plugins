@@ -5,23 +5,52 @@
     <meta name="viewport" content="width=640,user-scalable=0">
     <title>wow.js demo</title>
     <link rel="stylesheet" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" href="../../jqueryplugins/swiper/css/swiper.min.css">
     <style type="text/css">
         * { margin: 0; padding: 0; box-sizing: border-box;}
-        html, body { height: 100%; background: #fbc250;}
-        .swiper-container { position: relative; max-width: 640px; margin: 0 auto; padding-top: 1px;}
+        html, body { height: 100%; background: #333;}
         .swiper-container h1 { position: relative; z-index: 9; width: 280px; height: 280px; margin: 204px auto 0; text-indent: -9999px; background: url(images/logo.png) no-repeat; background-size: 100%;}
         .swiper-container .deco { position: absolute; left: 0; right: 0; top: 158px; height: 306px; background: url(images/slide1-deco.png) center no-repeat; background-size: 640px;}
+        .swiper-container { height: 100%;}
+        .swiper-slide { background: #fbc250;}
+        .swiper-slide:nth-of-type(2) { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; color: #fff; background: #67c3f1;}
+        .swiper-pagination-bullet { width: 12px; height: 12px; border: 1px solid #fff; background: none; opacity: 1;}
+        .swiper-pagination-bullet-active { background: #fff;}
+        .wow { visibility: hidden;}
     </style>
 </head>
 <body>
     <div class="swiper-container">
-    	<h1 class="wow zoomIn" data-wow-duration=".8s"></h1>
-        <div class="deco wow zoomIn" data-wow-delay=".7s" data-wow-duration=".8s"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <h1 class="wow zoomIn" data-wow-duration=".8s"></h1>
+                <div class="deco wow zoomIn" data-wow-delay=".7s" data-wow-duration=".8s"></div>
+            </div>
+            <div class="swiper-slide">
+                back to the first slide to see the demo again
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
     </div>
 
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <script src="../../jqueryplugins/swiper/js/swiper.jquery.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script>
-        new WOW().init();
+        new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical',
+            speed: 600,
+            onInit: function() {
+                new WOW({boxClass: 'swiper-slide-active .wow'}).init();
+            },
+            onSlideChangeEnd: function() {
+                $('.wow').attr('style', '');
+                new WOW({boxClass: 'swiper-slide-active .wow'}).init();
+            }
+        });
     </script>
 </body>
 </html>
