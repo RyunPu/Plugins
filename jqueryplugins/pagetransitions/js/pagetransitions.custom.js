@@ -68,7 +68,7 @@
         nextPage: function(back) {
             var self = this,
                 animation = parseInt(this.cfgs.animation),
-                animEndEventName = 'webkitAnimationEnd',
+                animEndEventName = 'webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend',
                 outClass = '',
                 inClass = '',
                 $currPage,
