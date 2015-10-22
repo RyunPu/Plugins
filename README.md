@@ -26,6 +26,7 @@
 * Parse, validate, manipulate, and display dates [moment](http://moamaoa.com/Plugins/js/moment/)
 * Device detection (phone, tablet, desktop, mobile grade, os, versions) [mobile-detect](http://zeno.github.io/mobile-detect-demo/)
 * Reveal CSS animation as you scroll down a page [wow](http://moamaoa.com/Plugins/js/wow/)
+* A simple and easy jQuery plugin for css animated page transitions [animsition](http://moamaoa.com/Plugins/jqueryplugins/animsition/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -44,3 +45,4 @@
 * [moment](http://momentjs.com/)
 * [mobile-detect](https://github.com/hgoebl/mobile-detect.js)
 * [wow](https://github.com/matthieua/WOW)
+* [animsition](http://git.blivesta.com/animsition/)
