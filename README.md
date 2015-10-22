@@ -27,6 +27,7 @@
 * Device detection (phone, tablet, desktop, mobile grade, os, versions) [mobile-detect](http://zeno.github.io/mobile-detect-demo/)
 * Reveal CSS animation as you scroll down a page [wow](http://moamaoa.com/Plugins/js/wow/)
 * A simple and easy jQuery plugin for css animated page transitions [animsition](http://moamaoa.com/Plugins/jqueryplugins/animsition/)
+* A simple and easy jQuery plugin for css animated page transitions [smoothstate](http://moamaoa.com/Plugins/jqueryplugins/smoothstate/)
 
 ## More
 * [awesomplete](https://github.com/LeaVerou/awesomplete)
@@ -46,3 +47,4 @@
 * [mobile-detect](https://github.com/hgoebl/mobile-detect.js)
 * [wow](https://github.com/matthieua/WOW)
 * [animsition](http://git.blivesta.com/animsition/)
+* [smoothstate](https://github.com/miguel-perez/smoothState.js)
