@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>headroom.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="../../css/animate/animate.min.css">
+    <style type="text/css">
+        #test { height: 100%; background: #1b1c1d url(http://moamaoa.com/img/home-bg.jpg) center no-repeat; background-size: cover;}
+        .middle.aligned { height: 100%;}
+        #test .headroom { position: fixed; z-index: 9; left: 0; top: 0; right: 0; padding-top: 10px; padding-bottom: 10px; border: none; -webkit-animation-duration: .4s; animation-duration: .4s;}
+        #test .headroom--not-top { background: #1b1c1d;}
+    </style>
+</head>
+<body>
+    <div id="test">
+        <div class="ui page padded grid">
+            <div class="column">
+                <div class="ui inverted secondary pointing menu headroom">
+                    <div class="right menu c-a">
+                        <a class="item wow fadeInRight" data-wow-delay=".8s" href="../">HOME</a>
+                        <a class="active item wow fadeInRight" data-wow-delay="1s" href="#">ABOUT</a>
+                        <a class="item wow fadeInRight" data-wow-delay="1.2s" href="../#team">TEAM</a>
+                        <a class="item wow fadeInRight" data-wow-delay="1.4s" href="../#contact">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui middle aligned padded grid">
+        <div class="center aligned row">
+            <div class="column">
+                scroll to test
+            </div>
+        </div>
+    </div>
+
+    <div class="ui middle aligned padded grid">
+        <div class="center aligned row">
+            <div class="column">
+                scroll to test
+            </div>
+        </div>
+    </div>
+
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="js/headroom.min.js"></script>
+    <script>
+        new Headroom($('.headroom').get(0), {
+            offset: 58,
+            classes: {
+                initial: 'animated',
+                pinned: 'fadeInDown',
+                unpinned: 'fadeOutUp'
+            }
+        }).init();
+    </script>
+</body>
+</html>
