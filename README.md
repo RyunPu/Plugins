@@ -29,3 +29,5 @@
 * A simple and easy jQuery plugin for css animated page transitions [animsition](http://git.blivesta.com/animsition/), [demo](http://moamaoa.com/Plugins/jqueryplugins/animsition/)
 * Unobtrusive page transitions with jQuery [smoothstate](https://github.com/miguel-perez/smoothState.js), [demo](http://moamaoa.com/Plugins/jqueryplugins/smoothstate/)
 * Give your pages some headroom. Hide your header until you need it [headroom](https://github.com/WickyNilliams/headroom.js),  [demo](http://moamaoa.com/Plugins/js/headroom/)
+* Typing effect mimicking human behavior [theaterjs](https://github.com/Zhouzi/TheaterJS),  [demo](http://moamaoa.com/Plugins/js/theaterjs/)
+* Automatically make same-page links scroll smoothly [jquery-smooth-scroll](https://github.com/kswedberg/jquery-smooth-scroll),  [demo](https://kswedberg.github.io/jquery-smooth-scroll/demo/)
