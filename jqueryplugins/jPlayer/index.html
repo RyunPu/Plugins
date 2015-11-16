@@ -25,6 +25,7 @@
         .list span { margin: 0 1em;}
         .play, .pause, .bar, .mute, .unmute, .slider, .list span, .total-time { cursor: pointer;}
         .active { color: #33C0BE;}
+        .jp-seeking-bg { background: url(img/seeking.gif) repeat-x;}
     </style>
 </head>
 <body>
@@ -66,12 +67,8 @@
             };
 
         myPlayer.jPlayer({
-            ready: function (e) {
-                $(this).jPlayer('setMedia', {
-                    mp3: $('.roar').data('audio-src')
-                });
-
-                console.log(e.jPlayer.status.media)
+            ready: function () {
+                $(this).jPlayer('setMedia', { mp3: $('.roar').data('audio-src') });
             },
             timeupdate: function(event) {
                 myControl.progress.slider('value', event.jPlayer.status.currentPercentAbsolute);
