@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            margin-top: 30px;
+            border-radius: 5px;
+            background: #999;
+            overflow: hidden;
+            color: #fff;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+            box-shadow: 0 5px 6px gray;
+        }
+
+        .grid-item:nth-child(2n) {
+            height: 200px;
+        }
+
+        .grid-item:nth-child(3n) {
+            height: 230px;
+        }
+
+        .grid-item:nth-child(4n) {
+            height: 150px;
+        }
+
+        .grid-item:nth-child(5n) {
+            height: 250px;
+        }
+
+        .grid-item:nth-child(6n) {
+            height: 160px;
+        }
+
+        .grid-item:nth-child(7n) {
+            height: 180px;
+        }
+
+        .grid-item .content {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100%;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .grid-item .brick {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: #7E1C13;
+            border-radius: 5px;
+        }
+
+        .grid-item:nth-child(2n) .brick {
+            background: #058789;
+        }
+
+        .grid-item:nth-child(3n) .brick {
+            background: #3D423C;
+        }
+
+        .grid-item:nth-child(4n) .brick {
+            background: #F3A358;
+        }
+
+        .grid-item:nth-child(5n) .brick {
+            background: #933C60;
+        }
+
+        .grid-item:nth-child(6n) .brick {
+            background: #37324A;
+        }
+
+        .size {
+            top: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item"><span class="content">item1</span><span data-effect="clip" class="brick">clip</span></div>
+            <div class="grid-item"><span class="content">item2</span><span class="size brick" data-effect="size" class="brick">size</span></div>
+            <div class="grid-item"><span class="content">item3</span><span data-effect="drop" class="brick">drop</span></div>
+            <div class="grid-item">
+                <span class="content">item4</span>
+                <img src="spaceship.jpg" data-effect="explode" class="brick">explode</img>
+            </div>
+            <div class="grid-item"><span class="content">item5</span><span data-effect="puff" class="brick">puff</span></div>
+            <div class="grid-item"><span class="content">item6</span><span data-effect="scale" class="brick">scale</span></div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">
+        $('.grid').masonry({
+            gutter: 30
+        });
+
+        $('.content').on('click', function() {
+            $(this).parent().find('.brick').show();
+        });
+
+        $('.brick').on('click', function() {
+            var effect = $(this).data('effect');
+            var options = {};
+
+            if (effect === 'scale') {
+                options = {
+                    percent: 0
+                };
+            } else if (effect === 'explode') {
+                options = {
+                    pieces: 32
+                };
+            } else if (effect === 'size') {
+                options = {
+                    to: {
+                        height: 0
+                    }
+                };
+            }
+
+            $(this).effect(effect, options, 500, function() {
+                if (effect === 'scale' || effect === 'size') {
+                    $(this).attr('style', 'display:none');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
