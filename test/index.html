@@ -134,7 +134,16 @@
         });
 
         $('.content').on('click', function() {
-            $(this).parent().find('.brick').show();
+            var brick = $(this).parent().find('.brick');
+            var effect = brick.data('effect');
+
+            if (effect === 'explode') {
+                brick.toggle('explode', {
+                    pieces: 32
+                });
+            } else {
+                brick.show();
+            }
         });
 
         $('.brick').on('click', function() {
