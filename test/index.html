@@ -135,7 +135,7 @@
 
         $('.content').on('click', function() {
             var brick = $(this).parent().find('.brick');
-            var effect = brick.data('effect');
+            var effect = '';
 
             if (effect === 'explode') {
                 brick.toggle('explode', {
