@@ -1,55 +1,168 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <title>jplayer.js demo</title>
     <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
     <style type="text/css">
-        .grid { height: 100%; color: #fff; -webkit-user-select: none;}
-        .player-container { width: 457px; margin: 0 auto;}
-        .player, .bar { position: relative;}
-        .player { height: 46px; padding-top: 1px; background: rgba(0,0,0,.9);}
-        .play, .pause { position: absolute; left: 0; top: 0; width: 52px; height: 100%; background: url(img/play.png) center center no-repeat; background-size: 33%;}
-        .pause { background: url(img/pause.png) center center no-repeat; background-size: 38%;}
-        .bar { height: 6px; margin-top: 20px; background: rgba(255,255,255,.25);}
-        .ui-slider-range { position: absolute; left: 0; top: 0; height: 100%; background: rgba(255,255,255,1);}
-        .ui-slider-handle { position: absolute; left: 0; top: -7px; width: 20px; height: 20px; margin-left: -10px; background: #fff; border-radius: 50%;}
-        .ui-slider-handle:focus { outline: none;}
-        .seek.bar { width: 236px; margin-left: 52px;}
-        .volume.bar { position: absolute; right: 20px; top: 0; width: 55px;}
-        .volume.mute, .volume.unmute { position: absolute; width: 20px; height: 20px; right: 89px; top: 13px; background: url(img/unmute.png) no-repeat; background-size: 100%;}
-        .volume.unmute { background: url(img/mute.png) no-repeat; background-size: 100%;}
-        .total-time { position: absolute; left: 302px; top: 0; width: 41px; height: 100%; line-height: 46px;}
-        .list { padding: 1em 0; background: rgba(0,0,0,.62);}
-        .list span { margin: 0 1em;}
-        .play, .pause, .bar, .mute, .unmute, .slider, .list span, .total-time { cursor: pointer;}
-        .active { color: #33C0BE;}
-        .jp-seeking-bg { background: url(img/seeking.gif) repeat-x;}
+        .grid {
+            height: 100%;
+            color: #fff;
+            -webkit-user-select: none;
+        }
+
+        .player-container {
+            width: 457px;
+            margin: 0 auto;
+        }
+
+        .player,
+        .bar {
+            position: relative;
+        }
+
+        .player {
+            height: 46px;
+            padding-top: 1px;
+            background: rgba(0, 0, 0, .9);
+        }
+
+        .play,
+        .pause {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 52px;
+            height: 100%;
+            background: url(img/play.png) center center no-repeat;
+            background-size: 33%;
+        }
+
+        .pause {
+            background: url(img/pause.png) center center no-repeat;
+            background-size: 38%;
+        }
+
+        .bar {
+            height: 6px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, .25);
+        }
+
+        .ui-slider-range {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .ui-slider-handle {
+            position: absolute;
+            left: 0;
+            top: -7px;
+            width: 20px;
+            height: 20px;
+            margin-left: -10px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .ui-slider-handle:focus {
+            outline: none;
+        }
+
+        .seek.bar {
+            width: 236px;
+            margin-left: 52px;
+        }
+
+        .volume.bar {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            width: 55px;
+        }
+
+        .volume.mute,
+        .volume.unmute {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 89px;
+            top: 13px;
+            background: url(img/unmute.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .volume.unmute {
+            background: url(img/mute.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .total-time {
+            position: absolute;
+            left: 302px;
+            top: 0;
+            width: 41px;
+            height: 100%;
+            line-height: 46px;
+        }
+
+        .list {
+            padding: 1em 0;
+            background: rgba(0, 0, 0, .62);
+        }
+
+        .list span {
+            margin: 0 1em;
+        }
+
+        .play,
+        .pause,
+        .bar,
+        .mute,
+        .unmute,
+        .slider,
+        .list span,
+        .total-time {
+            cursor: pointer;
+        }
+
+        .active {
+            color: #33C0BE;
+        }
+
+        .jp-seeking-bg {
+            background: url(img/seeking.gif) repeat-x;
+        }
     </style>
 </head>
+
 <body>
-   <div class="ui middle aligned padded grid">
-       <div class="column">
+    <div class="ui middle aligned padded grid">
+        <div class="column">
             <div id="jplayer"></div>
             <div id="player-container" class="player-container">
                 <div class="player">
-                   <div class="play jp-play"></div>
-                   <div class="pause jp-pause"></div>
-                   <div class="seek bar"></div>
-                   <div class="total-time jp-duration">00:00</div>
-                   <div class="volume mute jp-mute"></div>
-                   <div class="volume unmute jp-unmute"></div>
-                   <div class="volume bar"></div>
-               </div>
+                    <div class="play jp-play"></div>
+                    <div class="pause jp-pause"></div>
+                    <div class="seek bar"></div>
+                    <div class="total-time jp-duration">00:00</div>
+                    <div class="volume mute jp-mute"></div>
+                    <div class="volume unmute jp-unmute"></div>
+                    <div class="volume bar"></div>
+                </div>
 
-               <div class="list">
-                   <span class="active roar" data-audio-src="http://moamaoa.com/OralMaster-Share/images/test-mp3-2.mp3">Music 1</span>
-                   <span data-audio-src="http://moamaoa.com/OralMaster-Share/images/test-mp3.mp3">Music 2</span>
-               </div>
+                <div class="list">
+                    <span class="active roar" data-audio-src="test-mp3-2.mp3">Music 1</span>
+                    <span data-audio-src="test-mp3.mp3">Music 2</span>
+                </div>
             </div>
-       </div>
-   </div>
+        </div>
+    </div>
 
     <script src="../../jquery/jquery-2.1.4.min.js"></script>
     <script src="../../semantic-ui/semantic.min.js"></script>
@@ -67,14 +180,16 @@
             };
 
         myPlayer.jPlayer({
-            ready: function () {
-                $(this).jPlayer('setMedia', { mp3: $('.roar').data('audio-src') });
+            ready: function() {
+                $(this).jPlayer('setMedia', {
+                    mp3: $('.roar').data('audio-src')
+                });
             },
             timeupdate: function(event) {
                 myControl.progress.slider('value', event.jPlayer.status.currentPercentAbsolute);
             },
             volumechange: function(event) {
-                if(event.jPlayer.options.muted) {
+                if (event.jPlayer.options.muted) {
                     myControl.volume.slider('value', 0);
                 } else {
                     myControl.volume.slider('value', event.jPlayer.options.volume);
@@ -98,10 +213,10 @@
             max: 100,
             range: 'min',
             step: 0.1,
-            value : 0,
+            value: 0,
             slide: function(event, ui) {
                 var sp = myPlayerData.status.seekPercent;
-                if(sp > 0) {
+                if (sp > 0) {
                     myPlayer.jPlayer('playHead', ui.value * (100 / sp));
                 } else {
                     setTimeout(function() {
@@ -116,7 +231,7 @@
             max: 1,
             range: 'min',
             step: 0.01,
-            value : $.jPlayer.prototype.options.volume,
+            value: $.jPlayer.prototype.options.volume,
             slide: function(event, ui) {
                 if (ui.value > 0) {
                     myPlayer.jPlayer('option', 'muted', false);
@@ -129,10 +244,13 @@
 
         myControl.item.on('click', function() {
             var src = $(this).data('audio-src');
-            myPlayer.jPlayer('setMedia', { mp3: src}).jPlayer('play');
+            myPlayer.jPlayer('setMedia', {
+                mp3: src
+            }).jPlayer('play');
             $('.list span').removeClass('active');
             $(this).addClass('active');
         });
     </script>
 </body>
+
 </html>
