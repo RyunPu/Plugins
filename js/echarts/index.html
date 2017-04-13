@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>echarts.js demo</title>
+    <link rel="stylesheet" href="../../semantic-ui/semantic.min.css">
+    <style media="screen">
+        #chart {
+            width: 600px;
+            height: 300px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chart" width="600" height="320"></div>
+
+    <script src="../../jquery/jquery-2.1.4.min.js"></script>
+    <script src="../../semantic-ui/semantic.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script>
+        (function initChart() {
+            var myChart = echarts.init($('#chart').get(0));
+            var cfgs;
+
+            var options = {
+                grid: {
+                    x: 50,
+                    y: 10,
+                    x2: 20,
+                    y2: 60,
+                    borderWidth: 0
+                },
+
+                tooltip: {
+                    trigger: 'axis',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    formatter: function(params) {
+                        var res = params[0].name;
+
+                        for (var i = 0, l = params.length; i < l; i++) {
+                            res += '<br/>' + params[i].seriesName + '：' + params[i].value + '%';
+                        }
+
+                        return res;
+                    }
+                },
+
+                legend: {
+                    y: 'bottom',
+                    data: ['沪深300', 'TA的收益', '止损线', '目标收益']
+                },
+
+                xAxis: [{
+                    type: 'category',
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    boundaryGap: false
+                }],
+
+                yAxis: [{
+                    type: 'value',
+                    axisLine: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        formatter: function(v) {
+                            return v + '%';
+                        }
+                    }
+                }],
+
+                series: [{
+                        name: '沪深300',
+                        type: 'line',
+                        symbol: 'circle',
+                        smooth: false,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 1
+                                }
+                            }
+                        }
+                    },
+                    {
+                        name: 'TA的收益',
+                        type: 'line',
+                        yAxisIndex: 0,
+                        symbol: 'rectangle',
+                        smooth: false,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 1
+                                }
+                            }
+                        }
+                    },
+                    {
+                        name: '止损线',
+                        type: 'line',
+                        symbol: 'triangle',
+                        smooth: false,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 1,
+                                    type: 'dashed'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        name: '目标收益',
+                        type: 'line',
+                        symbol: 'diamond',
+                        smooth: false,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 1,
+                                    type: 'dashed'
+                                }
+                            }
+                        }
+                    }
+                ]
+            };
+
+            var fakeData = {
+                dates: ['02-19', '02-20', '02-21', '02-22', '02-23', '02-25', '02-28'], // 时间
+                hs300: [10, 11, 9, 12, 15, 13, 12], // 沪深300
+                his: [0, 2, 6, 8, 10, 14, 12], // TA的收益
+                loss: [-8, -8, -8, -8, -8, -8, -8], // 止损线
+                target: [8, 8, 8, 8, 8, 8, 8] // 目标收益
+            };
+            var data = fakeData;
+
+            cfgs = $.extend(true, options, {
+                xAxis: [{
+                    data: data.dates
+                }],
+                series: [{
+                        data: data.hs300
+                    },
+                    {
+                        data: data.his
+                    },
+                    {
+                        data: data.loss
+                    },
+                    {
+                        data: data.target
+                    }
+                ]
+            });
+
+            myChart.hideLoading();
+            myChart.setOption(cfgs, true);
+        })();
+    </script>
+</body>
+
+</html>

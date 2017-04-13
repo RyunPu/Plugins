@@ -32,3 +32,4 @@
 * Typing effect mimicking human behavior [theaterjs](https://github.com/Zhouzi/TheaterJS),  [demo](http://moamaoa.com/Plugins/js/theaterjs/)
 * Automatically make same-page links scroll smoothly [jquery-smooth-scroll](https://github.com/kswedberg/jquery-smooth-scroll),  [demo](https://kswedberg.github.io/jquery-smooth-scroll/demo/)
 * HTML5 Audio & Video for jQuery [jPlayer](http://jplayer.org/),  [demo](http://moamaoa.com/Plugins/jqueryplugins/jPlayer)
+* A powerful, interactive charting and visualization library for browser [echarts](http://echarts.baidu.com/),  [demo](http://moamaoa.com/Plugins/js/echarts)
