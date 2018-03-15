@@ -3,7 +3,7 @@
 
 ## Demo
 * 自动完成插件 [awesomplete](https://github.com/LeaVerou/awesomplete), [demo](http://moamaoa.com/Plugins/js/awesomplete/demo.html)
-* 邮箱自动补全插件 [autoMail](http://moamaoa.com/Plugins/jqueryplugins/automail/demo.html)
+* 邮箱自动补全插件 [autoMail](/Plugins/jqueryplugins/automail/demo.html)
 * jquery动画效果扩展插件 [jquery.easing](http://moamaoa.com/Plugins/jqueryplugins/easing/demo.html)
 * jquery转换过渡插件 [jquery.transit](https://github.com/rstacruz/jquery.transit), [demo](http://moamaoa.com/Plugins/jqueryplugins/transit/demo.html)
 * 跨浏览器css动画库 [animate.css](http://moamaoa.com/Plugins/css/animate/demo.html)
